@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>借款</title>
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="css/taxE2.css">
+    <script src="js/adapt.js"> </script>
+    <script src="js/jquery.js"></script>
+    <script src="js/zepto.js"></script>
+    <style>
+        .form-item label{width: 9em}
+        .form-item input{width: 18em}
+        .form-item input::-webkit-input-placeholder{text-align: right;}
+        .icon-shaixuan {font-size: 0.3rem;color: #2d97fa;padding-right:  0.266667rem;}
+        .icon-hint{font-size: 0.5rem;color: #2d97fa;padding-right: 15px;}
+        .detail-ul{padding:0 0.4rem 0.4rem;color: #666;line-height:2.5}
+    </style>
+</head>
+<body>
+<header class="head">
+    <a href="javascript:history.back(-1);" class="head-l iconfont icon-back"></a>
+    <h1>借款</h1>
+</header>
+<div class="mt20">
+    <form class="info-input">
+        <ul class="psd-setting">
+            <li class="form-item b-b">
+                <label class="bf1">借款金额</label>
+                <input type="text" placeholder="最高可借2万元" id="code"/>
+            </li>
+            <li class="form-item b-b pr">
+                <label class="bf1">借款期限</label>
+                <span class="choose-card"><span>1个月</span> <i class="iconfont icon-shaixuan ml10"></i></span>
+                <ul class="time-card-slide b-r b-l b-b">
+                    <li class="b-b">1个月</li>
+                    <li class="b-b">3个月</li>
+                    <li class="b-b">6个月</li>
+                    <li >12个月</li>
+                </ul>
+            </li>
+            <li class="form-item b-b pr">
+                <label class="bf1">还款方式</label>
+                <span class="choose-card"><span>按月付息，到期还本</span> <i class="iconfont icon-shaixuan ml10"></i></span>
+                <ul class="card-slide b-r b-l b-b">
+                    <li class="b-b">按月付息，到期还本</li>
+                    <li class="b-b">一次还本付息</li>
+                    <li >.等额本息，按月付款</li>
+                </ul>
+            </li>
+            <li class="form-item b-b">
+                <label class="bf1">总利息</label>
+                <input type="text" placeholder="正在计算中…" />
+            </li>
+            <li class="form-item b-b mt20">
+                <label class="bf1">收款账户</label>
+                <span class="pr30">三峡付6229***0032</span>
+            </li>
+            <li class="form-item b-b pr">
+                <label class="bf1">质押合同</label>
+                <span class="pr30">长寿经开区应急管理中心数字园区</span>
+            </li>
+            <li class="form-item b-b">
+                <label class="bf1">上传用途证明</label>
+                <span class="pr30"><i style="border: 1px dotted #2d97fa;display: inline-block;width: 0.6rem;height: 0.6rem;line-height: 0.45rem;color: #2d97fa;text-align: center;font-size: 0.4rem;margin-right: 10px;">+</i><i class="c6 ft26">上传</i></span>
+            </li>
+            <li class="form-item b-b">
+                <label class="bf1">还款计划试算</label>
+                <i class="iconfont icon-hint" id="caculate"></i>
+            </li>
+        </ul>
+    </form>
+    <div class="pr30 pl30 mt60">
+        <a href="采e贷-借款申请提交成功.html" class="main-btn btn" id="nextBtn2">下一步</a>
+    </div>
+</div>
+<!--弹框-->
+<div class="outbox dn">
+    <div class="detail-list">
+        <h3 class="b-b"><span style="width: 80%;word-break: break-all;display: inline-block;">还款计划</span><i class="iconfont icon-cha"></i></h3>
+        <ul class="detail-ul">
+            <li>
+                <p class="form-item c2">
+                    <span>借期3个月</span>
+                    <span class="bf1 db tr">按月付息，到期还本</span>
+                </p>
+                <p class="dbox">
+                    <span>2018.09.24还款</span>
+                    <span class="bf1 db tr">&yen;0.00</span>
+                </p>
+                <p class="dbox">
+                    <span>2018.09.24还款</span>
+                    <span class="bf1 db tr">&yen;45.00</span>
+                </p>
+                <p class="dbox">
+                    <span>2018.09.24还款</span>
+                    <span class="bf1 db tr">&yen;80.00</span>
+                </p>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--弹框end-->
+<script src="js/base-1.0.js"></script>
+<script>
+    /*金额*/
+    $("#code").on("input",function(){
+        var reg = $(this).val().match(/\d+\.?\d{0,2}/);
+        var txt = '';
+        if (reg != null&&parseInt(reg)<=20000){
+            txt = reg[0];
+        }
+        $(this).val(txt);
+        var t=$(this),
+            val=t.val(),
+            valLength=val.length,
+            pIndex=val.lastIndexOf(".");
+        if(val[1]!="."&&val[0]=="0"&&val[1]=="0"&&parseInt(val)<=20000){
+            var val1=val.substring(0,1);
+            val=t.val(val1);
+        }
+        if(val.indexOf('.')<3&&parseInt(val)<=20000){
+            val = val.substring(0,5
+            );
+            t.val(val);
+        }
+    }).change(function(){
+        $(this).trigger("input");
+    }).on("blur",function(){
+        var t=$(this),
+            val=t.val(),
+            valLength=val.length,
+            pIndex=val.lastIndexOf(".");
+        if(pIndex==-1&&val!=''){
+            t.val(val+".00");
+        }else if(valLength-pIndex==2){
+            t.val(val+"0")
+        }
+    });
+    uxun.inputFunc();
+    $(".choose-card").click(function(){
+        $(this).parent().find('ul').slideToggle();
+    });
+    $(".card-slide li,.time-card-slide li").on('click',function(){
+        var val=$(this).text();
+        $(this).parents('li').find(".choose-card span").text(val);
+        $(this).parent('ul').slideUp();
+    });
+    /*弹框*/
+    $("#caculate").click(function () {
+        $(".outbox").removeClass("dn")
+    })
+    $(".icon-cha").click(function(){
+        $(".outbox").addClass("dn");
+    })
+    $(".list-item >p").on("click",function () {
+        $(".outbox").removeClass("dn")
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>采e贷</title>
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="css/taxE2.css">
+    <script src="js/adapt.js"> </script>
+    <script src="js/jquery.js"></script>
+    <script src="js/zepto.js"></script>
+</head>
+<body>
+<header class="head">
+    <a href="javascript:history.back(-1);" class="head-l iconfont icon-back"></a>
+    <h1>采e贷</h1>
+    <a href="javascript:;" class="head-r head-f">常见问题</a>
+</header>
+<div class="pr">
+    <div class="borrow-wrap">
+        <p class="p30">
+            <span>可借的钱</span>
+            <span class="borrow-mony">400000.00</span>
+        </p>
+        <div class="dbox bw">
+            <div class="bf1 half-width bwr p30" >
+                <span>总额度</span>
+                <span class="db">500000.00</span>
+            </div>
+            <div class="bf1 half-width p30">
+                <span>日利率</span>
+                <span class="db"> 0.021%</span>
+            </div>
+        </div>
+    </div>
+    <div class="list-det">
+        <div class="list-item dbox">
+            <p class="b-r vm">长寿经开区应急管理中心 数字园区(一期)</p>
+            <span class="vm c6">可借5万元</span>
+        </div>
+        <div class="list-item dbox">
+            <p class="b-r vm">长寿经开区应急管理中心 数字园区(一期)</p>
+            <span class="vm c6">可借5万元</span>
+        </div>
+        <div class="list-item dbox">
+            <p class="b-r vm">长寿经开区应急管理中心 数字园区(一期)</p>
+            <span class="vm c6 tc mt25">
+                <i class="c2">已放款3万元</i>
+                <a class="c4" href="采e贷-借款.html">去还款</a>
+                <a href="javascript:;" class="c6 db mt10">上传用途证明</a>
+            </span>
+        </div>
+        <div class="list-item dbox">
+            <p class="b-r vm">长寿经开区应急管理中心 数字园区(一期)</p>
+            <span class="vm c6">可借5万元</span>
+        </div>
+    </div>
+    <p class="tc" id="slideBtn"><i class="iconfont icon-xiangxia mr10"></i><span>查看更多</span></p>
+    <div class="slide-wrap pr30 pl30 mt20 dn">
+        <div class="list-item dbox">
+            <p class="b-r vm">长寿经开区应急管理中心 数字园区(一期)</p>
+            <span class="vm c6">可借5万元</span>
+        </div>
+        <div class="list-item dbox">
+            <p class="b-r vm">长寿经开区应急管理中心 数字园区(一期)</p>
+            <span class="vm c6">可借5万元</span>
+        </div>
+        <div class="list-item dbox">
+            <p class="b-r vm">长寿经开区应急管理中心 数字园区(一期)</p>
+            <span class="vm c6 tc mt25">
+                <i class="c2">已放款3万元</i>
+                <a class="c4" href="采e贷-借款.html">去还款</a>
+                <a href="javascript:;" class="c6 db mt10">上传用途证明</a>
+            </span>
+        </div>
+        <div class="list-item dbox">
+            <p class="b-r vm">长寿经开区应急管理中心 数字园区(一期)</p>
+            <span class="vm c6">可借5万元</span>
+        </div>
+    </div>
+</div>
+<!--弹框-->
+<div class="outbox dn">
+    <div class="detail-list">
+        <h3 class="b-b"><span style="width: 80%;word-break: break-all;display: inline-block;">长寿经开区应急管理中心数字园区(一期)</span><i class="iconfont icon-cha"></i></h3>
+        <ul class="detail-ul">
+            <li>
+                <p>项目编号：18C0101</p>
+                <p>项目名称：长寿经开区应急管理中心数字园区(一期)</p>
+                <p>合同编号：001</p>
+                <p>合同名称：长寿经济技术开发区应急管理中心数字园区运行系统备品备件采购</p>
+            </li>
+            <li>
+                <p>项目编号：18C0101</p>
+                <p>项目名称：长寿经开区应急管理中心数字园区(一期)</p>
+                <p>合同编号：001</p>
+                <p>合同名称：长寿经济技术开发区应急管理中心数字园区运行系统备品备件采购</p>
+            </li>
+            <li>
+                <p>项目编号：18C0101</p>
+                <p>项目名称：长寿经开区应急管理中心数字园区(一期)</p>
+                <p>合同编号：001</p>
+                <p>合同名称：长寿经济技术开发区应急管理中心数字园区运行系统备品备件采购</p>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--弹框end-->
+<script>
+    /*下拉查看更多*/
+     $("#slideBtn").click(function () {
+          if ($("#slideBtn i").hasClass("icon-xiangxia")){
+              $(".slide-wrap").slideDown();
+              $("#slideBtn i").attr('class','icon-shouqi1 iconfont vm mr10');
+          }else {
+              $(".slide-wrap").slideUp();
+              $("#slideBtn i").attr('class','icon-xiangxia iconfont vm mr10');
+          }
+     });
+    /*关闭弹框*/
+     $(".icon-cha").click(function(){
+         $(".outbox").addClass("dn");
+     })
+     $(".list-item >p").on("click",function () {
+           $(".outbox").removeClass("dn")
+      });
+
+</script>
+</body>
+</html>
